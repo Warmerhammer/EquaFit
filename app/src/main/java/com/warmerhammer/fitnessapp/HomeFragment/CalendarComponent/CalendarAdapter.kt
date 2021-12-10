@@ -41,7 +41,7 @@ open class CalendarAdapter(
                 holder.dayOfMonth.setTextColor(Color.parseColor("#ffffff"))
                 // set onclick listener
                 Log.i("CalendarAdapter", "monthDayYearDay :: $monthDayYearDay")
-                holder.itemView.setOnClickListener {  listener(position.toString())  }
+                holder.itemView.setOnClickListener {  listener(day)  }
             }
         }
     }

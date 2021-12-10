@@ -208,7 +208,7 @@ class HomeFragmentView : Fragment(R.layout.fragment_home) {
             setUpCalendarComponentRC(selectedDate)
         }
 
-        // set up buttons
+        // set up forward button
         forwardButton.setOnClickListener {
             selectedDate = selectedDate.plusMonths(1)
             setUpCalendarComponentRC(selectedDate)
@@ -238,8 +238,10 @@ class HomeFragmentView : Fragment(R.layout.fragment_home) {
 
         val daysInMonth = daysInMonthArray(selectedDate)
         val calendarAdapter = CalendarAdapter(daysInMonth, setOfDates) { dayOfMonth ->
-            Log.i("HomeFragmentView", "dayOfMonth :: $dayOfMonth")
-            val detailDateFormat = DateTimeFormatter.ofPattern("MM/${dayOfMonth}/yyyy")
+            val day = if (dayOfMonth.length < 2) "0" + dayOfMonth else dayOfMonth
+
+            Log.i("HomeFragmentView", "dayOfMonth :: $day")
+            val detailDateFormat = DateTimeFormatter.ofPattern("MM/${day}/yyyy")
             val action =
                 HomeFragmentViewDirections.actionFirstFragmentToDateDetailFragmentView(
                     detailDateFormat.format(selectedDate)

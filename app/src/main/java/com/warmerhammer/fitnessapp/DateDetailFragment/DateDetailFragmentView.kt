@@ -56,6 +56,7 @@ class DateDetailFragmentView : Fragment() {
             updateDiagram()
         })
         // load workouts
+        Log.i(TAG, "args.date :: ${args.date}")
         viewModel.fetchWorkoutsByDate(args.date)
     }
 
@@ -85,8 +86,6 @@ class DateDetailFragmentView : Fragment() {
 
         val frontDiagramImageResource = frontAndBackDiagramPair.first.getImageResource()
         val backDiagramImageResource = frontAndBackDiagramPair.second.getImageResource()
-
-        Log.i("DateDetailFragmentView", "frontDiagramImageResource :: $frontDiagramImageResource")
 
         frontBodyImageView.setImageDrawable(
             ContextCompat.getDrawable(
