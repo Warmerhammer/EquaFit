@@ -1,19 +1,10 @@
 package com.warmerhammer.fitnessapp.HomeFragment.CustomSpinnerComponent
 
+import android.app.AlertDialog
 import android.app.Dialog
-import android.icu.text.SimpleDateFormat
-import android.os.Build
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextUtils.indexOf
-import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
-import android.widget.AutoCompleteTextView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,22 +12,15 @@ import com.warmerhammer.fitnessapp.HomeFragment.HomeFragmentViewModel
 import com.warmerhammer.fitnessapp.HomeFragment.HomeFragmentViewModelFactory
 import com.warmerhammer.fitnessapp.HomeFragment.WorkOutSummaryComponent.Workout
 import com.warmerhammer.fitnessapp.R
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.*
 import kotlin.collections.ArrayList
 
 class CustomSpinnerDialogFragment(private val workout: Workout, private val loadWorkoutsListener: (String) -> Unit) :
-    DialogFragment() {
+    androidx.fragment.app.DialogFragment() {
 
     private var filteredHardCodedWorkoutList = ArrayList<Pair<String, ArrayList<String>>>()
     private lateinit var adapter: CustomSpinnerRecyclerViewAdapter
     private lateinit var viewModelFactory: HomeFragmentViewModelFactory
     private lateinit var viewModel: HomeFragmentViewModel
-    private lateinit var onClickListener: CustomSpinnerRecyclerViewAdapter.OnClickListener
 
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

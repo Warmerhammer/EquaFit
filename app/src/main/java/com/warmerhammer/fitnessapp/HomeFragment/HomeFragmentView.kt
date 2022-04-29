@@ -2,6 +2,7 @@ package com.warmerhammer.fitnessapp.HomeFragment
 
 import android.app.Activity
 import android.app.Activity.*
+import androidx.fragment.app.FragmentManager
 import android.app.appsearch.AppSearchResult.RESULT_OK
 import android.content.Intent
 import android.os.Bundle

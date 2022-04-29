@@ -2,12 +2,12 @@ package com.warmerhammer.fitnessapp.DateDetailFragment
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
@@ -49,12 +49,12 @@ class DateDetailFragmentView : Fragment() {
         val cardViewRC : RecyclerView = view.findViewById(R.id.dateDetailFragmentRC)
         cardViewRC.layoutManager = LinearLayoutManager(requireContext())
         // observe workouts
-        viewModel.workouts.observe(this as LifecycleOwner, { workouts ->
+        viewModel.workouts.observe(this as LifecycleOwner) { workouts ->
             detailFragmentListOfWorkouts = workouts
             Log.i(TAG, "detailFragmentListOfWorkouts :: $detailFragmentListOfWorkouts")
             cardViewRC.adapter = DateDetailFragmentRCAdapter(detailFragmentListOfWorkouts)
             updateDiagram()
-        })
+        }
         // load workouts
         Log.i(TAG, "args.date :: ${args.date}")
         viewModel.fetchWorkoutsByDate(args.date)
